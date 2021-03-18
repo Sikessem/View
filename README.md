@@ -19,6 +19,7 @@ such as Perl, PHP, Python, Ruby and JavaScript (using Node).
         <p>[id="main-content"]{color:blue}(Welcome to DyHy !)
     )
 )
+```
 
 ```html
 <!DOCTYPE html>
@@ -41,6 +42,7 @@ such as Perl, PHP, Python, Ruby and JavaScript (using Node).
         <p>Welcome to DyHy !</p>
     </body>
 </html>
+```
 
 ```php
 <?php use Omni\Document;
@@ -56,3 +58,4 @@ $p->setProperty('color', 'red');
 $p->setContent('Welcome to Omni !');
 $document->prepend($p, $body);
 $document->save();
+```
