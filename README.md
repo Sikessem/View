@@ -1,0 +1,2 @@
+# Omni
+The Omni language
