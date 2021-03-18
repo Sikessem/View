@@ -7,7 +7,7 @@ such as Perl, PHP, Python, Ruby and JavaScript (using Node).
 An example to see how the code works :
 
 
-The ```OmniScript``` code
+A valid ```OmniScript``` code
 
 ```OmniScript
 <html>
