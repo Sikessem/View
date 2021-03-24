@@ -1,15 +1,15 @@
-# OmniScript source
+# Styper source
 
-OmniScript is both a language, a framework and an environment for dynamically
+Styper is both a language, a framework and an environment for dynamically
 developing complete web applications. It adapts to scripting language
 such as Perl, PHP, Python, Ruby and JavaScript (using Node).
 
 An example to see how the code works :
 
 
-The ```OmniScript``` code
+The ```Styper``` code
 
-```OmniScript
+```Styper
 <html>
 [lang="fr"]
 {color:red;}
@@ -17,11 +17,11 @@ The ```OmniScript``` code
     <head>
     (
         <meta>[charset="UTF-8"]
-        <title>(OmniScript source)
+        <title>(Styper source)
     )
     <body>
     (
-        <p>[id="main-content"]{color:blue}(Welcome to OmniScript !)
+        <p>[id="main-content"]{color:blue}(Welcome to Styper !)
     )
 )
 ```
@@ -34,7 +34,7 @@ The equivalent ```HTML5``` code
 <html lang="fr">
     <head>
         <meta charset="UTF-8"/>
-        <title>OmniScript source</title>
+        <title>Styper source</title>
         <style>
         html
         {
@@ -47,7 +47,7 @@ The equivalent ```HTML5``` code
         </style>
     </head>
     <body>
-        <p>Welcome to OmniScript !</p>
+        <p>Welcome to Styper !</p>
     </body>
 </html>
 ```
@@ -56,17 +56,17 @@ The equivalent ```HTML5``` code
 The equivalent ```PHP5``` code
 
 ```php
-<?php use OmniScript\Document;
+<?php use Styper\Document;
 require 'vendor/autoload.php';
 $document = new Document('html', 5);
 $document->setAttribute('lang', 'fr');
 $document->setProperty('color', 'red');
 $document->head->meta->charset = 'UTF-8';
-$document->title = 'Welcome to OmniScript !';
+$document->title = 'Welcome to Styper !';
 $p = $document->createElement('p');
 $p->setAttribute('id', 'main-content');
 $p->setProperty('color', 'red');
-$p->setContent('Welcome to OmniScript !');
+$p->setContent('Welcome to Styper !');
 $document->prepend($p, $body);
 $document->save();
 ```
