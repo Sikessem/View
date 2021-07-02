@@ -1,8 +1,6 @@
-# Styper source
+# HTML Builder
 
-Styper is both a language, a framework and an environment for dynamically
-developing complete web applications. It adapts to scripting language
-such as Perl, PHP, Python, Ruby and JavaScript (using Node).
+Write/read HTML documents easily in PHP
 
 An example to see how the code works :
 
