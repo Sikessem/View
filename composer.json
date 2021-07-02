@@ -1,0 +1,39 @@
+{
+    "name": "sikessem/html",
+    "description": "Write HTML codes easily in PHP",
+    "license": "Apache-2.0",
+    "keywords": [
+        "html",
+        "frontend",
+        "code-builder",
+        "code-generator"
+        "sikessem"
+    ],
+    "authors": [{
+        "name": "SIGUI kessé Emmanuel",
+        "email": "sikessem@omninf.com",
+        "role": "Developer"
+    }],
+    "support": {
+        "source": "https://github.com/SIKessEm/HTML.php",
+        "issues": "https://github.com/SIKessEm/HTML.php/issues"
+    },
+    "require": {
+        "php": ">=8.0",
+        "sikessem/organizer": "dev-main",
+        "sikessem/events": "dev-main",
+        "sikessem/encapsulation": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+          "SIKessEm\\HTML\\": "lib/"
+        }
+    },
+    "config": {
+        "vendor-dir": "pkg",
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
