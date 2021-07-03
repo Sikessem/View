@@ -1,4 +1,5 @@
-<?php namespace Ends\Html;
+<?php namespace SIKessEm\HTML;
+
 /**
  * The page class
  *
