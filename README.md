@@ -1,6 +1,6 @@
-# HTML Builder
+# PHP DOM
 
-Write/read HTML documents easily in PHP
+Handle HTML5 and CSS3 easily
 
 An example to see how the code works :
 
