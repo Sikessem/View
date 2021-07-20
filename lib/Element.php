@@ -1,10 +1,5 @@
-<?php namespace SIKessEm\HTML;
+<?php namespace SIKessEm\DOM;
 
-/**
- * The element class
- *
- * @author SIGUI Kessé Emmanuel
- * @package sikessem/html
- * @license Apache-2.0
- */
-abstract class Element {}
+use \DOMElement;
+
+class Element extends DOMElement {}

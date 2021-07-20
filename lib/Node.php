@@ -1,21 +1,5 @@
-<?php namespace SIKessEm\HTML;
+<?php namespace SIKessEm\DOM;
 
-/**
- * The HTML node class
- *
- * @author SIGUI Kessé Emmanuel
- * @package sikessem/html
- * @license Apache-2.0
- */
-abstract class Node {
-  /**
-   * Get the node render
-   *
-   * @return string The node render
-   */
-  abstract public function render(): string;
+use \DOMNode;
 
-  public function __toString(): string {
-    return $this->render();
-  }
-}
+abstract class Node extends DOMNode {}
