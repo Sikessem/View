@@ -5,7 +5,7 @@ export class NameInputComponent extends BaseComponent
   static selector = '[hello]';
   protected color = 'blue';
 
-  constructor(public element: HTMLInputElement)
+  constructor(public element: HTMLInputElement, public formater = new FormData())
   {
     super(element);
   }
