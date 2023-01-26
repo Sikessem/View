@@ -1,13 +1,27 @@
-export class NameInputDirective
+import { BaseComponent } from "App/Components/BaseComponent";
+
+export class NameInputComponent extends BaseComponent
 {
-  constructor(public element: HTMLInputElement) {}
+  static selector = '[hello]';
+  protected color = 'blue';
+
+  constructor(public element: HTMLInputElement)
+  {
+    super(element);
+  }
 
   init()
   {
-    this.element.style.color = 'blue';
+    this.element.style.color = this.element.getAttribute('color') || this.color;
+
     this.element.addEventListener('input', (event) => {
       this.helloInput(event.target as HTMLInputElement);
     });
+  }
+
+  getOutputId(): string
+  {
+    return (this.element.id || this.id) + 'Output';
   }
 
   helloInput(input: HTMLInputElement)
@@ -18,7 +32,7 @@ export class NameInputDirective
 
   findOutput(): HTMLOutputElement|null
   {
-    const output = document.getElementById('nameOutput');
+    const output = document.getElementById(this.getOutputId());
     
     if (output instanceof HTMLOutputElement) {
       return output;
@@ -30,8 +44,8 @@ export class NameInputDirective
   makeOutput(): HTMLOutputElement
   {
     const output = document.createElement('output');
-    output.setAttribute('id', 'nameOutput');
-    this.element.parentElement?.parentElement?.appendChild(output);
+    output.setAttribute('id', this.getOutputId());
+    this.element.parentElement?.appendChild(output);
     return output;
   }
 }

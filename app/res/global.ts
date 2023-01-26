@@ -1,8 +1,12 @@
-import { NameInputDirective } from "App/Hello/Hello";
+import { NameInputComponent } from 'App/Components/Hello/Hello';
 
-const element = document.querySelector<HTMLInputElement>('#name');
+const components = [NameInputComponent];
 
-if (element) {
-  const directive = new NameInputDirective(element);
-  directive.init();
-}
+components.forEach(component => {
+  const elements = document.querySelectorAll<HTMLInputElement>(component.selector);
+
+  elements.forEach(element => {
+    const directive = new component(element);
+    directive.init();
+  });
+})
