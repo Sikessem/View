@@ -1,4 +1,4 @@
-import { BaseComponent } from "App/Components/BaseComponent";
+import { BaseComponent } from "App/Core/Component";
 
 export class NameInputComponent extends BaseComponent
 {
