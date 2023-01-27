@@ -39,4 +39,9 @@ export abstract class BaseComponent implements ComponentType
     abstract init(): void;
 }
 
-export default BaseComponent;
+export class Component extends BaseComponent
+{
+    init(): void {}
+}
+
+export default Component;
