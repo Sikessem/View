@@ -1,38 +1,89 @@
 {
-    "name": "sikessem/dom",
-    "description": "Handle HTML5 and CSS3 easily",
-    "license": "Apache-2.0",
+    "name": "sikessem/view",
+    "type": "project",
+    "description": "📦️ Sikessem library builder template.",
+    "homepage": "https://sikessem.github.io/packages/view",
+    "license": "MIT",
     "keywords": [
-        "dom",
-        "html",
-        "css",
-        "frontend",
-        "code-builder",
-        "code-generator",
-        "sikessem"
+        "sikessem",
+        "package-view",
+        "repository-template",
+        "php"
     ],
-    "authors": [{
-        "name": "SIGUI kessé Emmanuel",
-        "email": "sikessem@omninf.com",
-        "role": "Developer"
-    }],
+    "authors": [
+        {
+            "name": "SIGUI Kessé Emmanuel",
+            "email": "contact@sigui.ci",
+            "homepage": "https://sigui.ci"
+        }
+    ],
     "support": {
-        "source": "https://github.com/SIKessEm/DOM.php",
-        "issues": "https://github.com/SIKessEm/DOM.php/issues"
+        "source": "https://github.com/sikessem/view",
+        "issues": "https://github.com/sikessem/view/issues",
+        "chat": "https://github.com/orgs/sikessem/discussions"
     },
     "require": {
-        "php": ">=8.0"
+        "php": ">=8.2",
+        "ext-dom": "*"
+    },
+    "require-dev": {
+        "sikessem/php-devtools": "^1.2"
     },
     "autoload": {
         "psr-4": {
-          "SIKessEm\\DOM\\": "lib/"
+            "Sikessem\\View\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sikessem\\View\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyse": "phpstan analyse --ansi --memory-limit=-1 --debug",
+        "check": "pint --test -v",
+        "debug": [
+            "@verify",
+            "@check",
+            "@analyse",
+            "@inspect",
+            "@review",
+            "@test"
+        ],
+        "init:tools": [
+            "psalm --init",
+            "rector init",
+            "pest --init"
+        ],
+        "fix": [
+            "@refactor",
+            "@improve",
+            "@format",
+            "@lint"
+        ],
+        "format": "psalter --issues=all",
+        "improve": "phpinsights fix",
+        "inspect": "psalm --no-diff",
+        "lint": "pint -v",
+        "test": "pest --colors=always",
+        "review": "rector --dry-run --debug",
+        "refactor": "rector",
+        "verify": "phpinsights analyse"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.x-dev"
         }
     },
     "config": {
-        "vendor-dir": "pkg",
+        "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true
 }
