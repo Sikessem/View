@@ -6,4 +6,7 @@ namespace Sikessem\View;
 
 use DOMNode;
 
+/**
+ * @psalm-api
+ */
 abstract class Node extends DOMNode {}

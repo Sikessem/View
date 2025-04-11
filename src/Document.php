@@ -6,4 +6,7 @@ namespace Sikessem\View;
 
 use DOMDocument;
 
+/**
+ * @psalm-api
+ */
 class Document extends DOMDocument {}

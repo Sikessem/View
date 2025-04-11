@@ -6,4 +6,7 @@ namespace Sikessem\View;
 
 use DOMText;
 
+/**
+ * @psalm-api
+ */
 class Text extends DOMText {}

@@ -6,4 +6,7 @@ namespace Sikessem\View;
 
 use DOMElement;
 
+/**
+ * @psalm-api
+ */
 class Element extends DOMElement {}

@@ -42,6 +42,7 @@ return [
     ],
 
     'remove' => [
+        \NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses::class,
     ],
 
     'config' => [

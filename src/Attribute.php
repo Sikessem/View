@@ -6,4 +6,7 @@ namespace Sikessem\View;
 
 use DOMAttr;
 
+/**
+ * @psalm-api
+ */
 class Attribute extends DOMAttr {}
