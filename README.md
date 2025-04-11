@@ -1,4 +1,4 @@
-# [<img src="https://github.com/sikessem/art/blob/HEAD/images/logo.svg" alt="Sikessem" height="24" />][sikessem-link]'s' Template Engine
+# [<img src="https://github.com/sikessem/art/blob/HEAD/images/logo.svg" alt="Sikessem" height="24" />][sikessem-link]'s Template Engine
 
 Handle HTML5 and CSS3 easily
 
@@ -92,8 +92,10 @@ Read below to learn how you can take part in improving Sikessem.
 
 ### [👷 Code of Conduct][conduct-link]
 
-[Sikessem][sikessem-link] has adopted a Code of Conduct that we expect project participants to adhere to.
-Please read the [full text][conduct-link] so that you can understand what actions will and will not be tolerated.
+[Sikessem][sikessem-link] has adopted a Code of Conduct
+that we expect project participants to adhere to.
+Please read the [full text][conduct-link] so that
+you can understand what actions will and will not be tolerated.
 
 ### 👥 [Contributing Guide][pr-link]
 
@@ -103,8 +105,10 @@ and how to build and test your changes to Sikessem.
 
 ### 🔒️ Good First Issues
 
-We have a list of [good first issues][gfi] that contain bugs which have a relatively limited scope.
-This is a great place to get started, gain experience, and get familiar with our contribution process.
+We have a list of [good first issues][gfi] that contain bugs
+which have a relatively limited scope.
+This is a great place to get started, gain experience,
+and get familiar with our contribution process.
 
 [gfi]: https://github.com/sikessem/view/labels/good%20first%20issue
 
