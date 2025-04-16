@@ -2,8 +2,9 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
+import eslintrc from './.eslintrc.js';
 
-const parserOptions = require('./.eslintrc.js').parserOptions
+const parserOptions = eslintrc.parserOptions;
 
 const base = '/';
 const assetsDir = 'assets';
