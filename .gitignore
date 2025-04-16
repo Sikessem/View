@@ -20,8 +20,10 @@ Homestead.yaml
 # Cache
 *.cache
 .mf
+.vscode/
 .rollup.cache
 tsconfig.tsbuildinfo
+/site/static/
 
 # Logs
 logs/
@@ -32,6 +34,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 error_log*
+
+# Temp
+tmp/
 
 # Editor
 .vscode/*
@@ -44,7 +49,12 @@ error_log*
 *.sln
 *.sw?
 
+# Yarn
+.yarn/*
+!.yarn/releases
+
 # Tests
 /test-results/
 /playwright-report/
 /playwright/.cache/
+/test-results/
