@@ -1,6 +1,15 @@
 # [<img src="https://github.com/sikessem/art/blob/HEAD/images/logo.svg" alt="Sikessem" height="24" />][sikessem-link]'s Template Engine
 
-Handle HTML5 and CSS3 easily
+**View** is a modern, elegant, and powerful template engine.
+Inspired by Blade, JSX, Twig, and other popular engines,
+it smartly merges HTML, CSS, and JavaScript/TypeScript into .vw files,
+enabling structured, dynamic, and maintainable code generation.
+
+Designed for the [Sikessem][sikessem-link] ecosystem yet completely standalone,
+View can be integrated into any project —
+whether it's built with PHP, JavaScript, Python, or another language.
+It stands as a serious alternative to JSX/TSX or Blade/Twig, offering a clean, modular,
+and intuitive syntax that seamlessly bridges frontend and backend development.
 
 [![php-icon]][php-link]
 [![packagist-version-icon]][packagist-version-link]
