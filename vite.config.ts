@@ -1,6 +1,7 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import tailwindcss from '@tailwindcss/vite';
 
 const parserOptions = require('./.eslintrc.js').parserOptions
 
@@ -25,6 +26,7 @@ export default defineConfig(() => {
       },
     },
     plugins: [
+      tailwindcss(),
       tsconfigPaths({
         root: parserOptions.tsconfigRootDir,
         projects: parserOptions.project,
