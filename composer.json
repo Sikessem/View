@@ -1,20 +1,28 @@
 {
+    "type": "library",
     "name": "sikessem/view",
-    "type": "project",
-    "description": "📦️ Sikessem library builder template.",
-    "homepage": "https://sikessem.github.io/packages/view",
+    "description": "A modern, minimalist and powerful template engine to write HTML, CSS, and JS together in .vw files. Inspired by Blade, JSX and others. Built for Sikessem, but usable with any PHP project.",
     "license": "MIT",
+    "homepage": "https://sikessem.github.io/packages/view",
     "keywords": [
+        "template",
+        "engine",
+        "view",
         "sikessem",
-        "package-view",
-        "repository-template",
-        "php"
+        "templating",
+        "jsx",
+        "blade",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "vw"
     ],
     "authors": [
         {
-            "name": "SIGUI Kessé Emmanuel",
-            "email": "contact@sigui.ci",
-            "homepage": "https://sigui.ci"
+            "name": "Sigui Kessé Emmanuel",
+            "email": "siguici@proton.me",
+            "homepage": "https://siguici.deno.dev"
         }
     ],
     "support": {

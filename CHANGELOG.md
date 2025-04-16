@@ -1,7 +1,7 @@
-# Release Notes for the Sikessem Skeleton
+# Release Notes for the Sikessem View
 
-All notable changes to [Skeleton](https://github.com/sikessem/skeleton) will be documented in this file.
+All notable changes to [View](https://github.com/sikessem/view) will be documented in this file.
 
-## [Unreleased](https://github.com/sikessem/skeleton/compare/v0.0.0...HEAD)
+## [Unreleased](https://github.com/sikessem/view/compare/v0.0.0...HEAD)
 
-**Full Changelog:** [v0.0.0...v0.x](https://github.com/sikessem/skeleton/compare/v0.0.0...v0.x)
+**Full Changelog:** [v0.0.0...v0.x](https://github.com/sikessem/view/compare/v0.0.0...v0.x)

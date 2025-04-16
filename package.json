@@ -1,6 +1,30 @@
 {
-  "name": "rangular",
-  "description": "Recreate Angular From Scratch.",
+  "name": "@sikessem/view",
+  "description": "A modern, minimal, and powerful template engine for combining HTML, CSS, and JS/TS into clean, reusable, and maintainable .vw files. Inspired by Blade and JSX, built for Sikessem but compatible with any ecosystem.",
+  "keywords": [
+    "template",
+    "engine",
+    "view",
+    "sikessem",
+    "templating",
+    "jsx",
+    "blade",
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "vw"
+  ],
+  "author": "Sigui Kessé Emmanuel <siguici@proton.me>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sikessem/view"
+  },
+  "bugs": {
+    "url": "https://github.com/sikessem/view/issues"
+  },
+  "homepage": "https://sikessem.github.io/packages/view",
   "private": true,
   "engines": {
     "bun": ">=1.2"
