@@ -3,9 +3,9 @@
   "description": "Recreate Angular From Scratch.",
   "private": true,
   "engines": {
-    "node": "^16.0.0 || >=18.0.0"
+    "bun": ">=1.2"
   },
-  "packageManager": "pnpm@7.25.0",
+  "packageManager": "bun@1.2.9",
   "publishConfig": {
     "access": "public"
   },
@@ -18,11 +18,11 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint \"app/**/*.ts*\"",
     "lint.base": "eslint . --ext .ts,.js --fix",
-    "test": "pnpm test.lint && pnpm test.fmt && pnpm test.unit",
-    "test.unit": "vitest run",
-    "test.cov": "vitest run --coverage",
-    "test.fmt": "prettier --check .",
-    "test.lint": "eslint . --ext .ts,.js"
+    "test": "bun test:lint && bun test:fmt && bun test:unit",
+    "test:unit": "vitest run",
+    "test:cov": "vitest run --coverage",
+    "test:fmt": "prettier --check .",
+    "test:lint": "eslint . --ext .ts,.js"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
