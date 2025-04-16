@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use Sikessem\View\Program;
+
+if (! in_array(PHP_SAPI, ['cli', 'phpdbg'])) {
+    fprintf(STDERR, 'Cannot run %s from %s', __FILE__, PHP_SAPI);
+    exit(1);
+}
+
+require_once __DIR__.DIRECTORY_SEPARATOR.'autoload.php';
+
+$view = new Program(__FILE__, getcwd());
+
+$view->run($argc, $argv);
