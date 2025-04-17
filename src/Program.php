@@ -121,6 +121,13 @@ class Program
      **/
     public function execute(array $args): int
     {
+        if (! count($args)) {
+            $code = $input::scan('❯ ');
+            $output::print($code);
+
+            return 0;
+        }
+
         return 0;
     }
 
@@ -187,6 +194,45 @@ class Program
             fwrite($stream, $message);
         } else {
             fprintf($stream, $message, ...$args);
+        }
+    }
+
+    public function scan(?string $prompt = null): string
+    {
+        return isset($prompt) ? readline($prompt) : trim(fgets(STDIN));
+    }
+
+    public function scanString(?string $prompt = null): string
+    {
+        return $this->scan($prompt);
+    }
+
+    public function scanInt(?string $prompt = null): int
+    {
+        return (int) $this->scan($prompt);
+    }
+
+    public function scanFloat(?string $prompt = null): float
+    {
+        return (float) $this->scan($prompt);
+    }
+
+    public function scanBool(?string $prompt = null): bool
+    {
+        $input = strtolower($this->scan($prompt.' (yes/no) '));
+
+        return in_array($input, ['yes', 'y', 'true', '1']);
+    }
+
+    public function scanChoice(string $prompt, array $choices): string
+    {
+        while (true) {
+            echo $prompt.' ['.implode('/', $choices).']: ';
+            $input = strtolower($this->scan());
+            if (in_array($input, $choices)) {
+                return $input;
+            }
+            $this->sendError("Invalid choice. Please try again.\n");
         }
     }
 }
