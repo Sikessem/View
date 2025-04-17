@@ -121,11 +121,10 @@ class Program
      **/
     public function execute(array $args): int
     {
+        $this->output("Project: $this->name\n\t$this->description".PHP_EOL);
         if (! count($args)) {
-            $code = $input::scan('❯ ');
-            $output::print($code);
-
-            return 0;
+            $code = $this->scan('❯ ');
+            $this->output($code);
         }
 
         return 0;
@@ -177,11 +176,16 @@ class Program
 
     public function sendError(string $message, mixed ...$args): never
     {
-        $this->printError($message, ...$args);
-        exit(1);
+        $this->output($message, ...$args);
+        $this->end(1);
     }
 
-    public function printError(string $message, mixed ...$args): void
+    public function output(string $message, mixed ...$args): void
+    {
+        $this->print(STDOUT, $message, ...$args);
+    }
+
+    public function error(string $message, mixed ...$args): void
     {
         $this->print(STDOUT, $message, ...$args);
     }
@@ -234,5 +238,10 @@ class Program
             }
             $this->sendError("Invalid choice. Please try again.\n");
         }
+    }
+
+    public function end(int $code = 0): never
+    {
+        exit($code);
     }
 }
