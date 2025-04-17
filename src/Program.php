@@ -19,6 +19,17 @@ class Program
 
     protected array $commands = [];
 
+    protected array $icons = [
+        'success' => '✅', 'error' => '❌', 'warning' => '⚠️',
+        'info' => 'ℹ️', 'question' => '❓', 'debug' => '🐞',
+        'rocket' => '🚀', 'fire' => '🔥', 'star' => '⭐',
+        'heart' => '❤️', 'thumbsUp' => '👍', 'thumbsDown' => '👎',
+        'clock' => '⏳', 'lightning' => '⚡', 'skull' => '💀',
+        'bulb' => '💡', 'hammer' => '🔨', 'wrench' => '🔧',
+        'file' => '📄', 'folder' => '📁', 'lock' => '🔒',
+        'unlock' => '🔓', 'bell' => '🔔', 'coffee' => '☕',
+    ];
+
     public function __construct(protected string $binFile, protected string $userRoot)
     {
         if (! is_file($binFile)) {
@@ -187,7 +198,7 @@ class Program
 
     public function error(string $message, mixed ...$args): void
     {
-        $this->print(STDOUT, $message, ...$args);
+        $this->print(STDOUT, $this->icon('error')." {$message}", ...$args);
     }
 
     public function print($stream, $message, mixed ...$args): void
@@ -243,5 +254,10 @@ class Program
     public function end(int $code = 0): never
     {
         exit($code);
+    }
+
+    public function icon(string $name): string
+    {
+        return $this->icons[$name] ?? '';
     }
 }
