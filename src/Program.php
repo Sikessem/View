@@ -7,7 +7,7 @@ namespace Sikessem\View;
 use InvalidArgumentException;
 use RuntimeException;
 
-class Program
+final class Program
 {
     protected string $projectRoot;
 
@@ -29,23 +29,6 @@ class Program
         'file' => '📄', 'folder' => '📁', 'lock' => '🔒',
         'unlock' => '🔓', 'bell' => '🔔', 'coffee' => '☕',
     ];
-
-    public function __construct(protected string $binFile, protected string $userRoot)
-    {
-        if (! is_file($binFile)) {
-            throw new InvalidArgumentException("$binFile is not a file");
-        }
-
-        if (! is_dir($userRoot)) {
-            throw new InvalidArgumentException("$userRoot is not a directory");
-        }
-
-        $this->binFile = realpath($binFile);
-        $this->userRoot = realpath($userRoot);
-        $this->projectRoot = dirname(__DIR__);
-
-        $this->configure();
-    }
 
     public function configure(): void
     {
@@ -72,11 +55,6 @@ class Program
         return $this;
     }
 
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
     public function setDescription(string $description): static
     {
         $this->description = $description;
@@ -84,55 +62,9 @@ class Program
         return $this;
     }
 
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    protected function loadComposerJson(string $dir): mixed
-    {
-        return $this->loadJson($dir.DIRECTORY_SEPARATOR.'composer.json', true);
-    }
-
-    protected function loadJson(string $file, bool $assoc = false): mixed
-    {
-        if (! is_file($file)) {
-            throw new InvalidArgumentException("$file is not a file");
-        }
-
-        $file = realpath($file);
-        $data = file_get_contents($file);
-
-        if (! json_validate($data)) {
-            throw new RuntimeException("Invalid `composer.json` file ($file)");
-        }
-
-        return json_decode($data, $assoc);
-    }
-
-    /**
-     * @param  null|array<string>  $argv
-     **/
-    public function run(?int $argc = null, ?array $argv = null): never
-    {
-        extract($this->parseArgs($argc, $argv));
-        $binFile = realpath($argv0);
-
-        if ($binFile !== $this->binFile && basename($this->binFile) !== basename($binFile) && dirname($binFile) !== dirname(__DIR__)) {
-            $this->sendError('Cannot run %s from %s', $this->binFile, $argv0);
-        }
-
-        $code = $this->execute($args);
-
-        exit($code);
-    }
-
-    /**
-     * @param  null|array<string>  $args
-     **/
     public function execute(array $args): int
     {
-        $this->output("Project: $this->name\n\t$this->description".PHP_EOL);
+        $this->output("Project: {$this->name}\n\t{$this->description}".PHP_EOL);
         if (! count($args)) {
             $code = $this->scan('❯ ');
             $this->output($code);
@@ -141,6 +73,11 @@ class Program
         return 0;
     }
 
+    /**
+     * @return (array|mixed|null)[]
+     *
+     * @psalm-return array{argv0: mixed|null, args: array}
+     */
     public function parseArgs(int $argc, array $argv): array
     {
         /** @var array<string> */
@@ -169,7 +106,7 @@ class Program
         $name = trim($name, DIRECTORY_SEPARATOR);
 
         foreach ($this->commands as $pattern => $action) {
-            if (preg_match("/^$pattern$/", $name, $matches)) {
+            if (preg_match("/^{$pattern}$/", $name, $matches)) {
                 return $action;
             }
         }
@@ -177,15 +114,7 @@ class Program
         return null;
     }
 
-    public function executeCommand(string $name, array $args): mixed
-    {
-        if ($process = $this->command($name)) {
-            return $process(...$args);
-        }
-        $this->sendError("Command $name not found");
-    }
-
-    public function sendError(string $message, mixed ...$args): never
+    public function sendError(string $message, string ...$args): never
     {
         $this->output($message, ...$args);
         $this->end(1);
@@ -196,12 +125,10 @@ class Program
         $this->print(STDOUT, $message, ...$args);
     }
 
-    public function error(string $message, mixed ...$args): void
-    {
-        $this->print(STDOUT, $this->icon('error')." {$message}", ...$args);
-    }
-
-    public function print($stream, $message, mixed ...$args): void
+    /**
+     * @param  resource  $stream
+     */
+    public function print($stream, string $message, mixed ...$args): void
     {
         $message .= PHP_EOL;
 
@@ -212,43 +139,9 @@ class Program
         }
     }
 
-    public function scan(?string $prompt = null): string
+    public function scan(?string $prompt = null): string|false
     {
         return isset($prompt) ? readline($prompt) : trim(fgets(STDIN));
-    }
-
-    public function scanString(?string $prompt = null): string
-    {
-        return $this->scan($prompt);
-    }
-
-    public function scanInt(?string $prompt = null): int
-    {
-        return (int) $this->scan($prompt);
-    }
-
-    public function scanFloat(?string $prompt = null): float
-    {
-        return (float) $this->scan($prompt);
-    }
-
-    public function scanBool(?string $prompt = null): bool
-    {
-        $input = strtolower($this->scan($prompt.' (yes/no) '));
-
-        return in_array($input, ['yes', 'y', 'true', '1']);
-    }
-
-    public function scanChoice(string $prompt, array $choices): string
-    {
-        while (true) {
-            echo $prompt.' ['.implode('/', $choices).']: ';
-            $input = strtolower($this->scan());
-            if (in_array($input, $choices)) {
-                return $input;
-            }
-            $this->sendError("Invalid choice. Please try again.\n");
-        }
     }
 
     public function end(int $code = 0): never
@@ -259,5 +152,26 @@ class Program
     public function icon(string $name): string
     {
         return $this->icons[$name] ?? '';
+    }
+
+    protected function loadComposerJson(string $dir): mixed
+    {
+        return $this->loadJson($dir.DIRECTORY_SEPARATOR.'composer.json', true);
+    }
+
+    protected function loadJson(string $file, bool $assoc = false): mixed
+    {
+        if (! is_file($file)) {
+            throw new InvalidArgumentException("{$file} is not a file");
+        }
+
+        $file = realpath($file);
+        $data = file_get_contents($file);
+
+        if (! json_validate($data)) {
+            throw new RuntimeException("Invalid `composer.json` file ({$file})");
+        }
+
+        return json_decode($data, $assoc);
     }
 }

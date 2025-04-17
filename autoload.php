@@ -7,7 +7,7 @@ use Composer\Autoload\ClassLoader;
 $loader = null;
 
 foreach (['../..', '.'] as $dir) {
-    if (file_exists($file = __DIR__."/$dir/vendor/autoload.php")) {
+    if (file_exists($file = __DIR__."/{$dir}/vendor/autoload.php")) {
         /** @var ClassLoader $loader */
         $loader = include_once $file;
         break;
