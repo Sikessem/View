@@ -50,7 +50,7 @@ class Program
     public function configure(): void
     {
         $this->composerJson = $this->loadComposerJson($this->userRoot);
-        /** @var array{name: string, version: string, description: string} */
+        /** @var array{name: string, version: string, description: string} $project */
         $project = $this->projectRoot === $this->userRoot
         ? $this->composerJson
            : $this->loadComposerJson($this->projectRoot);
@@ -112,7 +112,7 @@ class Program
 
     /**
      * @param  null|array<string>  $argv
-     **/
+     */
     public function run(?int $argc = null, ?array $argv = null): never
     {
         extract($this->parseArgs($argc, $argv));
@@ -129,7 +129,7 @@ class Program
 
     /**
      * @param  null|array<string>  $args
-     **/
+     */
     public function execute(array $args): int
     {
         $this->output("Project: $this->name\n\t$this->description".PHP_EOL);
@@ -143,7 +143,7 @@ class Program
 
     public function parseArgs(int $argc, array $argv): array
     {
-        /** @var array<string> */
+        /** @var array<string> $argv */
         $argv ??= $_SERVER['argv'] ?? [];
         $argc ??= $argc ?? count($argv);
 
@@ -201,7 +201,10 @@ class Program
         $this->print(STDOUT, $this->icon('error')." {$message}", ...$args);
     }
 
-    public function print($stream, $message, mixed ...$args): void
+    /**
+     * @param  resource  $stream
+     */
+    public function print($stream, string $message, mixed ...$args): void
     {
         $message .= PHP_EOL;
 
@@ -239,6 +242,9 @@ class Program
         return in_array($input, ['yes', 'y', 'true', '1']);
     }
 
+    /**
+     * @param  array<string, mixed>  $choices
+     */
     public function scanChoice(string $prompt, array $choices): string
     {
         while (true) {
