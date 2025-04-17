@@ -4,4 +4,10 @@ declare(strict_types=1);
 
 namespace Sikessem\View;
 
-final class Runtime {}
+class Runtime
+{
+    public static function instance(): self
+    {
+        return new self;
+    }
+}
