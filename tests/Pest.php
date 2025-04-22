@@ -1,5 +1,7 @@
 <?php
 
+use Pest\Expectation;
+
 /*
 |--------------------------------------------------------------------------
 | Test Case
@@ -11,20 +13,7 @@
 |
 */
 
-// uses(Sikessem\Skeleton\Tests\TestCase::class)->in('Feat');
-
-/*
-|--------------------------------------------------------------------------
-| Expectations
-|--------------------------------------------------------------------------
-|
-| When you're writing tests, you often need to check that values meet certain conditions. The
-| "expect()" function gives you access to a set of "expectations" methods that you can use
-| to assert different things. Of course, you may extend the Expectation API at any time.
-|
-*/
-
-expect()->extend('toBeOne', fn () => $this->toBe(1));
+uses(Sikessem\View\Tests\TestCase::class)->in('Arch', 'Feat', 'Unit');
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +26,7 @@ expect()->extend('toBeOne', fn () => $this->toBe(1));
 |
 */
 
-function something()
+function expectRender(mixed $value = null): Expectation
 {
-    // ..
+    return expect(render($value ?? ''));
 }
