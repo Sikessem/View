@@ -61,7 +61,7 @@ An example to see how the code works :
         </style>
     </head>
     <body>
-        <p>Welcome to View !</p>
+        <p id="main-content">Welcome to View !</p>
     </body>
 </html>
 ```
