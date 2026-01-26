@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffaa80f5ad30a571f1d67ac75b13a113",
+    "content-hash": "7000611ed24ba47a95b7b43b16de8445",
     "packages": [
         {
             "name": "brick/math",
@@ -14075,21 +14075,21 @@
         },
         {
             "name": "sikessem/framework",
-            "version": "v0.8.1",
+            "version": "v0.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Sikessem/Framework.git",
-                "reference": "45f04afe940cac6d93ba42c7095615fcdb24a451"
+                "reference": "8ee0d67be4f429c28bddb80cdf1c43da70adb39f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Sikessem/Framework/zipball/45f04afe940cac6d93ba42c7095615fcdb24a451",
-                "reference": "45f04afe940cac6d93ba42c7095615fcdb24a451",
+                "url": "https://api.github.com/repos/Sikessem/Framework/zipball/8ee0d67be4f429c28bddb80cdf1c43da70adb39f",
+                "reference": "8ee0d67be4f429c28bddb80cdf1c43da70adb39f",
                 "shasum": ""
             },
             "require": {
                 "laravel/folio": "^1.1",
-                "laravel/framework": "^12.7",
+                "laravel/framework": "^12.24",
                 "laravel/tinker": "^2.10",
                 "php": ">=8.2"
             },
@@ -14097,7 +14097,7 @@
                 "laravel/framework": "<11.0.0"
             },
             "require-dev": {
-                "siguici/laravel-devtools": "^1.2"
+                "siguici/laravel-devtools": "^1.4"
             },
             "type": "library",
             "extra": {
@@ -14135,7 +14135,7 @@
                 "issues": "https://github.com/sikessem/framework/issues",
                 "source": "https://github.com/sikessem/framework"
             },
-            "time": "2025-04-22T13:25:03+00:00"
+            "time": "2025-08-21T16:53:00+00:00"
         },
         {
             "name": "sikessem/laravel-devtools",
@@ -16642,7 +16642,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=8.2",
+        "php": ">=8.3",
         "ext-dom": "*"
     },
     "platform-dev": {},
